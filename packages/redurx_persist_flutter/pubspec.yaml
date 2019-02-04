@@ -22,5 +22,5 @@ dev_dependencies:
 dependency_overrides:
   redurx_persist:
     git:
-      url: git://github.com/feilfeilundfeil/redurx_persist
+      url: git://github.com/feilfeilundfeil/redurx_persist.git
       path: packages/redurx_persist/
