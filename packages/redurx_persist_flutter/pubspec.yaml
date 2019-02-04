@@ -21,4 +21,6 @@ dev_dependencies:
 # Used for development
 dependency_overrides:
   redurx_persist:
-    path: ../redurx_persist
+    git:
+      url: git://github.com/feilfeilundfeil/redurx_persist
+      path: packages/redurx_persist/
