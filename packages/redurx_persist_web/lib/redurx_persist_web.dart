@@ -1,10 +1,10 @@
-library redux_persist_web;
+library redurx_persist_web;
 
 import 'dart:async';
 import 'dart:html';
 import 'dart:typed_data';
 
-import 'package:redux_persist/redux_persist.dart';
+import 'package:redurx_persist/redurx_persist.dart';
 
 /// Storage engine to use with Web.
 /// You should only store utf8-encoded data here, like JSON, or base64 data.

@@ -1,11 +1,11 @@
-library redux_persist_flutter;
+library redurx_persist_flutter;
 
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:path_provider/path_provider.dart';
-import 'package:redux_persist/redux_persist.dart';
+import 'package:redurx_persist/redurx_persist.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Location to save state when using Flutter.
