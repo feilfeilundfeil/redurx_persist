@@ -1,8 +1,10 @@
 name: redurx_persist_web
 description: ReduRx Persist Web Integration with custom storage engines
 version: 0.1.0
-#homepage: https://github.com/Cretezy/redurx_persist/tree/master/packages/redurx_persist_web
-author: Charles Crete <charles@cretezy.com>
+homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redux_persist_web
+author:
+  - David Wimmer <david.wimmer@ffuf.de>
+  - Charles Crete <charles@cretezy.com>
 
 environment:
   sdk: ">=1.24.0 <3.0.0"

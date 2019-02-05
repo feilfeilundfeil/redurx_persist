@@ -15,7 +15,8 @@ void main() async {
   // Load initial state
   final initialState = await persistor.load();
 
-  final store = Store<AppState>(initialState ?? AppState(counter: 0));
+  final store = Store<AppState>(initialState ?? AppState(counter: 0))
+    ..add(PersistorMiddleware<AppState>(persistor));
 
   runApp(App(store: store));
 }
