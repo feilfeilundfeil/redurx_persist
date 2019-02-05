@@ -14,7 +14,9 @@ dependencies:
 
 # Used for development
 dependency_overrides:
+#  redurx_persist:
+#    git:
+#      url: git://github.com/feilfeilundfeil/redurx_persist.git
+#      path: packages/redurx_persist/
   redurx_persist:
-    git:
-      url: git://github.com/feilfeilundfeil/redurx_persist.git
-      path: packages/redurx_persist/
+    path: ../redurx_persist
