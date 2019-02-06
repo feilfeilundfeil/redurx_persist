@@ -1,8 +1,9 @@
 name: redurx_persist
 description: Persist ReduRx State with custom storage engines and serializers
 version: 0.1.0
-homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redux_persist
+homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redurx_persist
 author:
+  - Feil Feil & Feil GmbH <github@account.ffuf.de>
   - David Wimmer <david.wimmer@ffuf.de>
   - Charles Crete <charles@cretezy.com>
 

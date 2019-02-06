@@ -1,8 +1,9 @@
 name: redurx_persist_web
 description: ReduRx Persist Web Integration with custom storage engines
 version: 0.1.0
-homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redux_persist_web
+homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redurx_persist_web
 author:
+  - Feil Feil & Feil GmbH <github@account.ffuf.de>
   - David Wimmer <david.wimmer@ffuf.de>
   - Charles Crete <charles@cretezy.com>
 
@@ -10,14 +11,4 @@ environment:
   sdk: ">=1.24.0 <3.0.0"
 
 dependencies:
-  redurx_persist: "^0.1.0"
-
-# Used for development
-dependency_overrides:
-#  redurx_persist:
-#    git:
-#      url: git://github.com/feilfeilundfeil/redurx_persist.git
-#      path: packages/redurx_persist/
-#      ref: redurx
-  redurx_persist:
-    path: ../redurx_persist/
+  redurx_persist: "^0.9.0"

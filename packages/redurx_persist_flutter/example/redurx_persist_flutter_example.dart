@@ -21,7 +21,7 @@ void main() async {
   runApp(App(store: store));
 }
 
-// Redux
+// ReduRx
 class AppState {
   final int counter;
 
@@ -49,7 +49,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       store: store,
-      child: MaterialApp(title: 'Redux Persist Demo', home: HomePage()),
+      child: MaterialApp(title: 'ReduRx Persist Demo', home: HomePage()),
     );
   }
 }
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Redux Persist demo"),
+        title: Text("ReduRx Persist demo"),
       ),
       body: Center(
         child: Column(
