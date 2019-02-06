@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:redux/redux.dart';
-import 'package:redux_persist/redux_persist.dart';
+import 'package:redurx/redurx.dart';
+import 'package:redurx_persist/redurx_persist.dart';
 
 void main() async {
   final persistor = Persistor<State>(
@@ -12,11 +12,7 @@ void main() async {
   // Load initial state
   final initialState = await persistor.load();
 
-  final store = Store<State>(
-    reducer,
-    initialState: initialState ?? State(),
-    middleware: [persistor.createMiddleware()],
-  );
+  final store = Store<State>(initialState ?? State(counter: 0));
 
   // ...
 }
@@ -33,13 +29,7 @@ class State {
   dynamic toJson() => {'counter': counter};
 }
 
-class IncrementCounterAction {}
-
-State reducer(State state, Object action) {
-  if (action is IncrementCounterAction) {
-    // Increment
-    return state.copyWith(counter: state.counter + 1);
-  }
-
-  return state;
+class IncrementCounter extends Action<State> {
+  @override
+  State reduce(State state) => state.copyWith(counter: state.counter + 1);
 }

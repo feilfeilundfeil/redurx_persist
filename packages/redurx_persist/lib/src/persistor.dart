@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
-import 'package:redux/redux.dart';
-import 'package:redux_persist/src/exceptions.dart';
-import 'package:redux_persist/src/serialization.dart';
-import 'package:redux_persist/src/storage.dart';
-import 'package:redux_persist/src/transforms.dart';
+import 'package:redurx/redurx.dart';
+import 'package:redurx_persist/src/exceptions.dart';
+import 'package:redurx_persist/src/serialization.dart';
+import 'package:redurx_persist/src/storage.dart';
+import 'package:redurx_persist/src/transforms.dart';
 import 'package:synchronized/synchronized.dart';
 
 /// Persistor class that saves/loads to/from disk.
@@ -47,31 +47,6 @@ class Persistor<T> {
     this.throttleDuration = Duration.zero,
     this.shouldSave,
   });
-
-  /// Middleware used for Redux which saves on each action.
-  Middleware<T> createMiddleware() {
-    Timer _saveTimer;
-
-    return (Store<T> store, dynamic action, NextDispatcher next) {
-      next(action);
-
-      if (shouldSave != null && shouldSave(store, action) != true) {
-        return;
-      }
-
-      // Save
-      try {
-        if (throttleDuration != null) {
-          // Only create a new timer if the last one hasn't been run.
-          if (_saveTimer?.isActive != true) {
-            _saveTimer = Timer(throttleDuration, () => save(store.state));
-          }
-        } else {
-          save(store.state);
-        }
-      } catch (_) {}
-    };
-  }
 
   /// Load state from storage
   Future<T> load() async {
@@ -187,5 +162,34 @@ class Persistor<T> {
     if (debug) {
       print('Persistor debug: $object');
     }
+  }
+}
+
+class PersistorMiddleware<T> extends Middleware<T> {
+
+  Persistor<T> persistor;
+  Timer _saveTimer;
+
+  PersistorMiddleware(this.persistor);
+
+  @override
+  T beforeAction(ActionType action, T state) {
+    return super.beforeAction(action, state);
+  }
+
+  @override
+  T afterAction(ActionType action, T state) {
+    try {
+      if (persistor.throttleDuration != null) {
+        if (_saveTimer?.isActive != null) {
+          _saveTimer = Timer(persistor.throttleDuration, () => persistor.save(state));
+        }
+      } else {
+        persistor.save(state);
+      }
+    } catch (_) {
+      print('PersistorMiddleware failed');
+    }
+    return super.afterAction(action, state);
   }
 }

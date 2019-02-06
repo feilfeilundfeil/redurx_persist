@@ -1,6 +1,6 @@
-# redux_persist [![pub package](https://img.shields.io/pub/v/redux_persist.svg)](https://pub.dartlang.org/packages/redux_persist)
+# redurx_persist [![pub package](https://img.shields.io/pub/v/redurx_persist.svg)](https://pub.dartlang.org/packages/redurx_persist)
 
-Persist [Redux](https://pub.dartlang.org/packages/redux) state across app restarts in Flutter, Web, or custom storage engines.
+Persist [Redux](https://pub.dartlang.org/packages/redurx) state across app restarts in Flutter, Web, or custom storage engines.
 
 Features:
 
@@ -12,15 +12,15 @@ Features:
 
 Storage Engines:
 
-* [Flutter](https://pub.dartlang.org/packages/redux_persist_flutter)
-* [Web](https://pub.dartlang.org/packages/redux_persist_web)
+* [Flutter](https://pub.dartlang.org/packages/redurx_persist_flutter)
+* [Web](https://pub.dartlang.org/packages/redurx_persist_web)
 * File and custom (see below)
 
 ## Usage
 
-See [Flutter example](https://github.com/Cretezy/redux_persist/tree/master/packages/redux_persist_flutter/example) for a full overview.
+See [Flutter example](https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redurx_persist_flutter/example) for a full overview.
 
-The library creates a middleware that saves on every action.
+The library has a Middleware class that saves on every action.
 
 ### State Setup
 
@@ -56,21 +56,18 @@ This will usually be in your `main` or in your root widget:
 void main() async {
   // Create Persistor
   final persistor = Persistor<AppState>(
-    storage: FileStorage(File("state.json")), // Or use other engines
-    serializer: JsonSerializer<AppState>(AppState.fromJson), // Or use other serializers
+    storage: FlutterStorage(),
+    serializer: JsonSerializer<AppState>(AppState.fromJson),
   );
-  
+
   // Load initial state
   final initialState = await persistor.load();
-  
+
   // Create Store with Persistor middleware
-  final store = Store<AppState>(
-    reducer,
-    initialState: initialState ?? AppState(),
-    middleware: [persistor.createMiddleware()],
-  );
-  
-  // ..
+  final store = Store<AppState>(initialState ?? AppState(counter: 0))
+    ..add(PersistorMiddleware<AppState>(persistor));
+
+  // ...
 }
 ```
 
@@ -80,8 +77,8 @@ void main() async {
 
 You can use different storage engines for different application types:
 
-* [Flutter](https://pub.dartlang.org/packages/redux_persist_flutter)
-* [Web](https://pub.dartlang.org/packages/redux_persist_web)
+* [Flutter](https://pub.dartlang.org/packages/redurx_persist_flutter)
+* [Web](https://pub.dartlang.org/packages/redurx_persist_web)
 * `FileStorage`:
 
   ```dart
@@ -93,7 +90,7 @@ You can use different storage engines for different application types:
 
 * Build your own custom storage engine:
 
-  To create a custom engine, you will need to implement the following [interface](https://github.com/Cretezy/redux_persist/blob/master/packages/redux_persist/lib/src/storage.dart#L6)
+  To create a custom engine, you will need to implement the following [interface](https://github.com/feilfeilundfeil/redurx_persist/blob/master/packages/redurx_persist/lib/src/storage.dart#L6)
   to save/load a string to disk:
 
   ```dart
@@ -114,7 +111,7 @@ You can use one of the [built in serializers](./lib/src/serialization.dart) such
 
 * Build your own serializer:
 
-  To create a custom engine, you will need to implement the following [interface](https://github.com/Cretezy/redux_persist/blob/master/packages/redux_persist/lib/src/serialization.dart#L5)
+  To create a custom engine, you will need to implement the following [interface](https://github.com/feilfeilundfeil/redurx_persist/blob/master/packages/redurx_persist/lib/src/serialization.dart#L5)
   to encode/decode state to/from `Uint8List`:
 
   ```dart
@@ -253,4 +250,4 @@ final persistor = Persistor<AppState>(
 ## Features and bugs
 
 Please file feature requests and bugs at the
-[issue tracker](https://github.com/Cretezy/redux_persist/issues).
+[issue tracker](https://github.com/feilfeilundfeil/redurx_persist/issues).

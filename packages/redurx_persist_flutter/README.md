@@ -1,6 +1,6 @@
-# redux_persist_flutter [![pub package](https://img.shields.io/pub/v/redux_persist_flutter.svg)](https://pub.dartlang.org/packages/redux_persist_flutter)
+# redurx_persist_flutter [![pub package](https://img.shields.io/pub/v/redurx_persist_flutter.svg)](https://pub.dartlang.org/packages/redurx_persist_flutter)
 
-Flutter Storage Engine for [`redux_persist`](https://pub.dartlang.org/packages/redux_persist).
+Flutter Storage Engine for [`redurx_persist`](https://pub.dartlang.org/packages/redurx_persist).
 
 Can either save to [`shared_preferences`](https://pub.dartlang.org/packages/shared_preferences)
 (default, recommended), or your
@@ -40,4 +40,4 @@ for the file name (document file) or the shared preference key.
 ## Features and bugs
 
 Please file feature requests and bugs at the
-[issue tracker](https://github.com/Cretezy/redux_persist/issues).
+[issue tracker](https://github.com/feilfeilundfeil/redurx_persist/issues).

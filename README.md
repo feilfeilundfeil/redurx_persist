@@ -1,13 +1,13 @@
-# redux_persist
+# redurx_persist
 
-Monorepo of `redux_persist`, containing:
+Monorepo of `redurx_persist`, containing:
 
-* [`redux_persist`](packages/redux_persist)
-* [`redux_persist_flutter`](packages/redux_persist_flutter)
-* [`redux_persist_web`](packages/redux_persist_web)
+* [`redurx_persist`](packages/redurx_persist)
+* [`redurx_persist_flutter`](packages/redurx_persist_flutter)
+* [`redurx_persist_web`](packages/redurx_persist_web)
 
 
 ## Features and bugs
 
 Please file feature requests and bugs at the
-[issue tracker](https://github.com/Cretezy/redux_persist/issues).
+[issue tracker](https://github.com/feilfeilundfeil/redurx_persist/issues).

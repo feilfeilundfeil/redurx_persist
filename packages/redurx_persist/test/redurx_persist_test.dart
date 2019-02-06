@@ -1,4 +1,4 @@
-import 'package:redux_persist/redux_persist.dart';
+import 'package:redurx_persist/redurx_persist.dart';
 import 'package:test/test.dart';
 
 void main() {

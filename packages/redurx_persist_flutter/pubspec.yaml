@@ -1,0 +1,24 @@
+name: redurx_persist_flutter
+description: ReduRx Persist Flutter Integration with custom storage engines
+version: 0.1.0
+homepage: https://github.com/feilfeilundfeil/redurx_persist/tree/master/packages/redurx_persist_flutter
+author:
+  - Feil Feil & Feil GmbH <github@account.ffuf.de>
+  - David Wimmer <david.wimmer@ffuf.de>
+  - Charles Crete <charles@cretezy.com>
+
+environment:
+  sdk: ">=2.0.0-dev <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: "flutter"
+  path_provider: "^0.4.0"
+  shared_preferences: "^0.4.0"
+  redurx_persist: "^0.9.0"
+
+dev_dependencies:
+  redurx: "^1.0.0"
+  flutter_redurx: "^1.0.0+1"
+
+

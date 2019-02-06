@@ -1,3 +1,7 @@
+## `0.9.0` - 2019-02-05
+
+* Initial release redurx_persist_flutter.
+
 ## `0.8.0` - 2018-11-27
 
 * Release v0.8.0. Last v0.x release line.
