@@ -11,4 +11,9 @@ environment:
   sdk: ">=1.24.0 <3.0.0"
 
 dependencies:
-  redurx_persist: "^0.9.0"
+  #redurx_persist: "^0.9.0"
+  redurx_persist:
+    git:
+      url: git@github.com:feilfeilundfeil/redurx_persist.git
+      path: packages/redurx_persist
+
