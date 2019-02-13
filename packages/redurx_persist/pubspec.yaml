@@ -11,7 +11,9 @@ environment:
   sdk: ">=2.0.0-dev <3.0.0"
 
 dependencies:
-  redurx: "^1.0.0"
+  redurx:
+    git:
+      url: git@github.com:feilfeilundfeil/ReduRx.git
   synchronized: "^1.5.0"
   meta: "^1.1.0"
 

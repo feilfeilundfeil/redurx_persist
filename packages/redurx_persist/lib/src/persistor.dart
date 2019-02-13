@@ -173,12 +173,7 @@ class PersistorMiddleware<T> extends Middleware<T> {
   PersistorMiddleware(this.persistor);
 
   @override
-  T beforeAction(ActionType action, T state) {
-    return super.beforeAction(action, state);
-  }
-
-  @override
-  T afterAction(ActionType action, T state) {
+  void afterAction(Store<T> store, ActionType action, T state) {
     try {
       if (persistor.throttleDuration != null) {
         if (_saveTimer?.isActive != null) {
@@ -190,6 +185,5 @@ class PersistorMiddleware<T> extends Middleware<T> {
     } catch (_) {
       print('PersistorMiddleware failed');
     }
-    return super.afterAction(action, state);
   }
 }
